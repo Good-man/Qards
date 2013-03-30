@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
@@ -8,14 +8,8 @@
         <title>Qards</title>
     </head>
     <body>
-        <h3>Is this thing on?</h3>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
+        <h1>Qards</h1>
+        <input type="text" ng-model="quizData" />
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/angular/angular.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
