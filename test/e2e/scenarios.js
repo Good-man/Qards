@@ -2,7 +2,7 @@
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
-describe('my app', function() {
+describe('Qards app', function() {
 
   beforeEach(function() {
     browser().navigateTo('../../Qards/index.html');

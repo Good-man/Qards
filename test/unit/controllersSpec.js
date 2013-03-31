@@ -2,8 +2,18 @@
 
 /* jasmine specs for controllers go here */
 
-describe('??', function(){
+describe('AppController', function(){
+  beforeEach(module('qardsApp.controllers'));
+
+  var scope, controller;
+  beforeEach(inject(function($controller, $rootScope) {
+    scope = $rootScope;
+    controller = $controller('AppController', {
+      $scope: $rootScope
+    });
+  }));
+
   it('should ....', function() {
-    expect(1).toBe(1);
+    expect(scope.test).not.toBeUndefined();
   });
 });
