@@ -16,6 +16,16 @@ describe('AppController', function() {
     scope.$broadcast('quizzesLoaded', []);
     expect(scope.quizzes).toEqual([]);
   });
+
+  it('should parse valid JSON', function() {
+    var result = scope.parse('{"a":1}');
+    expect(result).toEqual({a:1});
+  });
+
+  it('should return undefined if invalid JSON', function() {
+    var result = scope.parse('invalid');
+    expect(result).toBeUndefined();
+  });
 });
 
 describe('QuizController', function() {

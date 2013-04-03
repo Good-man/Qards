@@ -8,9 +8,13 @@ describe('Qards app', function() {
     browser().navigateTo('../../Qards/index.html');
   });
 
-
   it('should have the expected title', function() {
     expect(element('title').text()).toBe('Qards');
+  });
+
+  it('should load quizzes', function() {
+    element('button').click();
+    expect(element('#quizzes').text()).toBe('');
   });
 
 

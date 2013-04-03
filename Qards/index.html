@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="qardsApp">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
@@ -7,10 +7,16 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Qards</title>
     </head>
-    <body>
+    <body ng-controller="AppController">
         <h1>Qards</h1>
-        <input type="text" ng-model="quizData" />
-        <p>{{quizData}}</p>
+        <input ng-model="quizzesData" type="text" />
+        <button ng-click="$broadcast('quizzesLoaded', parse(quizzesData))">TEST</button>
+
+        <p>Available Quizzes</p>
+        <ul ng-repeat="quiz in quizzes">
+            <li>{{quiz.name}}</li>
+        </ul>
+
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/angular/angular.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
