@@ -12,4 +12,8 @@ angular.module('qardsApp.controllers', [])
   .controller('QuizController', ['$scope', 'quiz', function($scope, quiz) {
     $scope.name = quiz.name;
     $scope.qards = quiz.qards;
+  }])
+
+  .controller('QardController', ['$scope', 'qard', function($scope, qard) {
+    $scope.question = qard.question;
   }]);

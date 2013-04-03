@@ -41,3 +41,22 @@ describe('QuizController', function() {
     expect(scope.qards).toEqual([]);
   });
 });
+
+describe('QardController', function() {
+  beforeEach(module('qardsApp.controllers'));
+
+  var scope, controller;
+  beforeEach(inject(function($controller, $rootScope) {
+    scope = $rootScope;
+    controller = $controller('QardController', {
+      $scope: $rootScope,
+      qard: {
+        question: 'question'
+      }
+    });
+  }));
+
+  it('should create a "question" model', function() {
+      expect(scope.question).toBe('question');
+    });
+});
