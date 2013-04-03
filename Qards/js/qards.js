@@ -4,5 +4,7 @@ angular.module('qardsApp', ['qardsApp.controllers']);
 
 angular.module('qardsApp.controllers', [])
   .controller('AppController', ['$scope', function($scope) {
-    $scope.test = null;
+    $scope.$on('quizzesLoaded', function(e, quizzes) {
+      $scope.quizzes = quizzes;
+    });
   }]);

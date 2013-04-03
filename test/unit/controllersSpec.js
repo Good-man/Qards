@@ -1,6 +1,5 @@
 'use strict';
 
-/* jasmine specs for controllers go here */
 
 describe('AppController', function(){
   beforeEach(module('qardsApp.controllers'));
@@ -13,7 +12,8 @@ describe('AppController', function(){
     });
   }));
 
-  it('should ....', function() {
-    expect(scope.test).not.toBeUndefined();
+  it('on quizzesLoaded should create "quizzes" model', function() {
+    scope.$broadcast('quizzesLoaded', []);
+    expect(scope.quizzes).toEqual([]);
   });
 });
