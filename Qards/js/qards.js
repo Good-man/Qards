@@ -7,4 +7,8 @@ angular.module('qardsApp.controllers', [])
     $scope.$on('quizzesLoaded', function(e, quizzes) {
       $scope.quizzes = quizzes;
     });
+  }])
+
+  .controller('QuizController', ['$scope', 'quiz', function($scope, quiz) {
+    $scope.name = quiz.name;
   }]);

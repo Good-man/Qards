@@ -1,7 +1,7 @@
 'use strict';
 
 
-describe('AppController', function(){
+describe('AppController', function() {
   beforeEach(module('qardsApp.controllers'));
 
   var scope, controller;
@@ -15,5 +15,24 @@ describe('AppController', function(){
   it('on quizzesLoaded should create "quizzes" model', function() {
     scope.$broadcast('quizzesLoaded', []);
     expect(scope.quizzes).toEqual([]);
+  });
+});
+
+describe('QuizController', function() {
+  beforeEach(module('qardsApp.controllers'));
+
+  var scope, controller;
+  beforeEach(inject(function($controller, $rootScope) {
+    scope = $rootScope;
+    controller = $controller('QuizController', {
+      $scope: $rootScope,
+      quiz: {
+        name: 'name'
+      }
+    });
+  }));
+
+  it('should create a "name" model', function() {
+    expect(scope.name).toBe('name');
   });
 });
