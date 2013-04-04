@@ -36,21 +36,20 @@ describe('Qards app', function() {
       element('#btn-loadQuizzes').click();
     });
 
-    it('should create "quizzes" model', function() {
-      // console.log(binding('quizzes'));
-      // expect(binding('quizzes')).toBe([]);
-    });
-
     it('should list quizzes', function() {
-      expect(repeater('ul li').count()).toEqual(2);
+      expect(repeater('div').count()).toEqual(2);
     });
 
     it('should list quizzes by "name"', function() {
-      expect(repeater('ul li').column(0)).toEqual(['quiz1','quiz2']);
+      expect(element('.div-quiz').count()).toEqual(2);
+      expect(element('.div-quiz:first').text()).toEqual('quiz1');
+      expect(element('.div-quiz:last').text()).toEqual('quiz2');
     });
 
-
     describe('QuizController', function() {
+      beforeEach(function() {
+        element('li:first').click();
+      });
 
     });
   });
