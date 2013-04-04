@@ -4,6 +4,7 @@ angular.module('qardsApp', ['qardsApp.controllers']);
 
 angular.module('qardsApp.controllers', [])
   .controller('AppController', ['$scope', function($scope) {
+    $scope.quizzesData = '[{"name":"quiz1","qards":[{"question":"question1","answers":["answer1","answer2"]}]},{"name":"quiz2"}]';
     $scope.$on('quizzesLoaded', function(e, quizzes) {
       $scope.quizzes = quizzes;
     });

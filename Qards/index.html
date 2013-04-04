@@ -13,7 +13,9 @@
         <button id="btn-loadQuizzes" ng-click="$broadcast('quizzesLoaded', parse(quizzesData))">TEST</button>
 
         <p>Available Quizzes</p>
-        <div class="div-quiz" ng-repeat="quiz in quizzes">{{quiz.name}}</div>
+        <div class="div-quiz" ng-repeat="quiz in quizzes">
+            <p>{{quiz.name}}</p>
+        </div>
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/angular/angular.min.js"></script>
