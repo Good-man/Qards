@@ -1,6 +1,24 @@
 'use strict';
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
+var sampleQuizzes = JSON.stringify([
+  {
+    name: 'quiz1',
+    qards: [
+      {
+        question: 'question1',
+        answers: [
+          'answer1',
+          'answer2'
+        ]
+      }
+    ]
+  },
+  {
+    name: 'quiz2'
+  }
+]);
+
 
 describe('Qards app', function() {
 
@@ -14,8 +32,13 @@ describe('Qards app', function() {
 
   describe('AppController', function() {
     beforeEach(function() {
-      input('quizzesData').enter('[{"name":"quiz1"},{"name":"quiz2"}]')
+      input('quizzesData').enter(sampleQuizzes);
       element('#btn-loadQuizzes').click();
+    });
+
+    it('should create "quizzes" model', function() {
+      // console.log(binding('quizzes'));
+      // expect(binding('quizzes')).toBe([]);
     });
 
     it('should list quizzes', function() {
@@ -23,39 +46,12 @@ describe('Qards app', function() {
     });
 
     it('should list quizzes by "name"', function() {
-      expect(element('li:first').text()).toEqual('quiz1');
-      expect(element('li:last').text()).toEqual('quiz2');
+      expect(repeater('ul li').column(0)).toEqual(['quiz1','quiz2']);
+    });
+
+
+    describe('QuizController', function() {
+
     });
   });
-
-
-
-  // describe('view1', function() {
-
-  //   beforeEach(function() {
-  //     browser().navigateTo('#/view1');
-  //   });
-
-
-  //   it('should render view1 when user navigates to /view1', function() {
-  //     expect(element('[ng-view] p:first').text()).
-  //       toMatch(/partial for view 1/);
-  //   });
-
-  // });
-
-
-  // describe('view2', function() {
-
-  //   beforeEach(function() {
-  //     browser().navigateTo('#/view2');
-  //   });
-
-
-  //   it('should render view2 when user navigates to /view2', function() {
-  //     expect(element('[ng-view] p:first').text()).
-  //       toMatch(/partial for view 2/);
-  //   });
-
-  // });
 });
