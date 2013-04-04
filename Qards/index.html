@@ -14,7 +14,8 @@
 
         <p>Available Quizzes</p>
         <div class="div-quiz" ng-repeat="quiz in quizzes">
-            <p>{{quiz.name}}</p>
+            <a ng-click="currentQuiz='/quizTemplate'" href="">{{quiz.name}}</a>
+            <div ng-include src="currentQuiz"></div>
         </div>
 
         <script type="text/javascript" src="cordova.js"></script>
@@ -23,6 +24,15 @@
         <script type="text/javascript" src="js/qards.js"></script>
         <script type="text/javascript">
             app.initialize();
+        </script>
+
+        <script type="text/ng-template" id="/quizTemplate">
+        <div ng-repeat="qard in quiz.qards">
+            <p>{{qard.question.id}}. <span>{{qard.question.text}}</span></p>
+            <div ng-repeat="answer in qard.answers">
+                <div>{{answer.id}}. <span>{{answer.text}}</span></div>
+            </div>
+        </div>
         </script>
     </body>
 </html>

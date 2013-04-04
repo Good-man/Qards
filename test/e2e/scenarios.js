@@ -6,16 +6,75 @@ var sampleQuizzes = JSON.stringify([
     name: 'quiz1',
     qards: [
       {
-        question: 'question1',
+        question: {
+          id: 1,
+          text: 'question1a'
+        },
         answers: [
-          'answer1',
-          'answer2'
+          {
+            id: 1,
+            text: 'answer1a'
+          },
+          {
+            id: 2,
+            text: 'answer2a'
+          }
+        ]
+      },
+      {
+        question: {
+          id: 2,
+          text: 'question2a'
+        },
+        answers: [
+          {
+            id: 1,
+            text: 'answer1b'
+          },
+          {
+            id: 2,
+            text: 'answer2b'
+          }
         ]
       }
     ]
   },
   {
-    name: 'quiz2'
+    name: 'quiz2',
+    qards: [
+      {
+        question: {
+          id: 1,
+          text: 'question1b'
+        },
+        answers: [
+          {
+            id: 1,
+            text: 'answer1c'
+          },
+          {
+            id: 2,
+            text: 'answer2c'
+          }
+        ]
+      },
+      {
+        question: {
+          id: 2,
+          text: 'question2b'
+        },
+        answers: [
+          {
+            id: 1,
+            text: 'answer1d'
+          },
+          {
+            id: 2,
+            text: 'answer2d'
+          }
+        ]
+      }
+    ]
   }
 ]);
 
@@ -44,13 +103,6 @@ describe('Qards app', function() {
       expect(element('.div-quiz').count()).toEqual(2);
       expect(element('.div-quiz:first').text()).toEqual('quiz1');
       expect(element('.div-quiz:last').text()).toEqual('quiz2');
-    });
-
-    describe('QuizController', function() {
-      beforeEach(function() {
-        element('li:first').click();
-      });
-
     });
   });
 });
