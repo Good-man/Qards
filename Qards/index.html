@@ -10,7 +10,7 @@
     <body ng-controller="AppController">
         <h1>Qards</h1>
         <input ng-model="quizzesData" type="text" />
-        <button ng-click="$broadcast('quizzesLoaded', parse(quizzesData))">TEST</button>
+        <button id="btn-loadQuizzes" ng-click="$broadcast('quizzesLoaded', parse(quizzesData))">TEST</button>
 
         <p>Available Quizzes</p>
         <ul ng-repeat="quiz in quizzes">

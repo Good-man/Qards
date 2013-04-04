@@ -12,10 +12,22 @@ describe('Qards app', function() {
     expect(element('title').text()).toBe('Qards');
   });
 
-  it('should load quizzes', function() {
-    element('button').click();
-    expect(element('#quizzes').text()).toBe('');
+  describe('AppController', function() {
+    beforeEach(function() {
+      input('quizzesData').enter('[{"name":"quiz1"},{"name":"quiz2"}]')
+      element('#btn-loadQuizzes').click();
+    });
+
+    it('should list quizzes', function() {
+      expect(repeater('ul li').count()).toEqual(2);
+    });
+
+    it('should list quizzes by "name"', function() {
+      console.log(element('ul li:first'));
+      expect(repeater('ul li').column(0).text().toEqual('quiz1'));
+    });
   });
+
 
 
   // describe('view1', function() {
