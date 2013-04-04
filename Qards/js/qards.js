@@ -9,7 +9,6 @@ angular.module('qardsApp.controllers', [])
     });
 
     $scope.parse = function(data) {
-      console.log(data);
       try {
         return JSON.parse(data);
       } catch (err) {

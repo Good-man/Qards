@@ -23,8 +23,8 @@ describe('Qards app', function() {
     });
 
     it('should list quizzes by "name"', function() {
-      console.log(element('ul li:first'));
-      expect(repeater('ul li').column(0).text().toEqual('quiz1'));
+      expect(element('li:first').text()).toEqual('quiz1');
+      expect(element('li:last').text()).toEqual('quiz2');
     });
   });
 

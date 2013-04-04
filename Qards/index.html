@@ -13,8 +13,8 @@
         <button id="btn-loadQuizzes" ng-click="$broadcast('quizzesLoaded', parse(quizzesData))">TEST</button>
 
         <p>Available Quizzes</p>
-        <ul ng-repeat="quiz in quizzes">
-            <li>{{quiz.name}}</li>
+        <ul>
+            <li ng-repeat="quiz in quizzes">{{quiz.name}}</li>
         </ul>
 
         <script type="text/javascript" src="cordova.js"></script>
