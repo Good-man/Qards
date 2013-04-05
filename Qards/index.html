@@ -17,8 +17,14 @@
             <accordion-group ng-repeat="quiz in quizzes" heading="{{quiz.name}}">
                 <div ng-repeat="qard in quiz.qards">
                     <p>{{qard.question.id}}. {{qard.question.text}}</p>
+                    <p>{{qard.selectedAnswer}}</p>
                     <div ng-repeat="answer in qard.answers">
-                        {{answer.id}}. {{answer.text}}
+                        <input  ng-model="qard.selectedAnswer"
+                                id="{{answer.id}}"
+                                value="{{answer.id}}"
+                                type="radio"
+                                name="qard-{{qard.id}}" />
+                        <label for="{{answer.id}}">{{answer.text}}</label>
                     </div>
                 </div>
             </accordion-group>
