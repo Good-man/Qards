@@ -3,9 +3,11 @@
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 var sampleQuizzes = JSON.stringify([
   {
+    id: 1,
     name: 'quiz1',
     qards: [
       {
+        id: 1,
         question: {
           id: 1,
           text: 'question1a'
@@ -22,6 +24,7 @@ var sampleQuizzes = JSON.stringify([
         ]
       },
       {
+        id: 2,
         question: {
           id: 2,
           text: 'question2a'
@@ -40,9 +43,11 @@ var sampleQuizzes = JSON.stringify([
     ]
   },
   {
+    id: 2,
     name: 'quiz2',
     qards: [
       {
+        id: 3,
         question: {
           id: 1,
           text: 'question1b'
@@ -59,6 +64,7 @@ var sampleQuizzes = JSON.stringify([
         ]
       },
       {
+        id: 4,
         question: {
           id: 2,
           text: 'question2b'
