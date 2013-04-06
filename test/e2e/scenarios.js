@@ -8,6 +8,7 @@ var sampleQuizzes = JSON.stringify([
     qards: [
       {
         id: 1,
+        correctAnswer: 2,
         question: {
           id: 1,
           text: 'question1a'
@@ -25,17 +26,18 @@ var sampleQuizzes = JSON.stringify([
       },
       {
         id: 2,
+        correctAnswer: 3,
         question: {
           id: 2,
           text: 'question2a'
         },
         answers: [
           {
-            id: 1,
+            id: 3,
             text: 'answer1b'
           },
           {
-            id: 2,
+            id: 4,
             text: 'answer2b'
           }
         ]
@@ -48,34 +50,36 @@ var sampleQuizzes = JSON.stringify([
     qards: [
       {
         id: 3,
+        correctAnswer: 6,
         question: {
           id: 1,
           text: 'question1b'
         },
         answers: [
           {
-            id: 1,
+            id: 5,
             text: 'answer1c'
           },
           {
-            id: 2,
+            id: 6,
             text: 'answer2c'
           }
         ]
       },
       {
         id: 4,
+        correctAnswer: 7,
         question: {
           id: 2,
           text: 'question2b'
         },
         answers: [
           {
-            id: 1,
+            id: 7,
             text: 'answer1d'
           },
           {
-            id: 2,
+            id: 8,
             text: 'answer2d'
           }
         ]
