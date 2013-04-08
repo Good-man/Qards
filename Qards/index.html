@@ -18,7 +18,7 @@
             <div ng-repeat="quiz in quizzes" class="ui-bar ui-bar-d">
                 <p><h3 class="ui-bar">{{quiz.name}}</h3></p>
                 <ul ng-repeat="qard in quiz.qards" data-role="listview">
-                    <li data-role="list-divider"><h3>{{qard.question.id}}. {{qard.question.text}}</h3></li>
+                    <li data-role="list-divider"><h3 style="white-space: normal;">{{qard.question.id}}. {{qard.question.text}}</h3></li>
                     <li ng-repeat="answer in qard.answers">
                         <div
                             class="answer ui-bar"
@@ -30,7 +30,7 @@
                     <li>
                         <div class="ui-grid-a">
                             <div class="ui-block-a"><div class="ui-bar">
-                                <button ng-click="qard.showAnswer = !qard.showAnswer">Check Answer</button>
+                                <a href="" data-role="none" ng-click="qard.showAnswer = !qard.showAnswer">Grade Me</a>
                             </div></div>
                             <div class="ui-block-b"><div class="ui-bar" ng-show="qard.showAnswer">
                                 <div ng-show="isCorrect(qard)">Correct!</div>
