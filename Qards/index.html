@@ -4,44 +4,64 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="js/bootstrap/bootstrap-combined.min.css" />
+        <link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
         <title>Qards</title>
     </head>
     <body ng-controller="AppController">
-        <h1>Qards</h1>
-        <input ng-model="quizzesData" type="text" />
-        <button id="btn-loadQuizzes" ng-click="$broadcast('quizzesLoaded', parse(quizzesData))">TEST</button>
+    <div data-role="page" data-theme="d" data-content-theme="d">
+        <div data-role="header"><h1>QARDS</h1></div>
+        <div data-role="content">
+            <input ng-model="quizzesData" type="text" />
+            <a href="" ng-click="$broadcast('quizzesLoaded', parse(quizzesData))" data-role="button">Load Test Quiz</a>
 
-        <p>Available Quizzes</p>
-        <accordion>
-            <accordion-group ng-repeat="quiz in quizzes" heading="{{quiz.name}}">
-                <div ng-repeat="qard in quiz.qards">
-                    <p>{{qard.question.id}}. {{qard.question.text}}</p>
-                    <div ng-repeat="answer in qard.answers">
-                        <input  ng-model="qard.selectedAnswer"
-                                id="{{answer.id}}"
-                                value="{{answer.id}}"
-                                type="radio"
-                                name="qard-{{qard.id}}" />
-                        <label for="{{answer.id}}">{{answer.text}}</label>
-                    </div>
-                    <button ng-click="qard.showAnswer = !qard.showAnswer">Show Answer</button>
-                    <div collapse="!qard.showAnswer">
-                        <div ng-show="isCorrect(qard)">Correct!</div>
-                        <div ng-show="!isCorrect(qard)">Wrong!</div>
-                    </div>
-                </div>
-            </accordion-group>
-        </accordion>
+            <h2>Available Quizzes</h2>
+            <div ng-repeat="quiz in quizzes" class="ui-bar ui-bar-d">
+                <p><h3 class="ui-bar">{{quiz.name}}</h3></p>
+                <ul ng-repeat="qard in quiz.qards" data-role="listview">
+                    <li data-role="list-divider"><h3>{{qard.question.id}}. {{qard.question.text}}</h3></li>
+                    <li ng-repeat="answer in qard.answers">
+                        <div
+                            class="answer ui-bar"
+                            ng-class="answer.selectedClass"
+                            ng-click="selectAnswer(qard, answer)">
+                            {{answer.id}}. {{answer.text}}
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a"><div class="ui-bar">
+                                <button ng-click="qard.showAnswer = !qard.showAnswer">Check Answer</button>
+                            </div></div>
+                            <div class="ui-block-b"><div class="ui-bar" ng-show="qard.showAnswer">
+                                <div ng-show="isCorrect(qard)">Correct!</div>
+                                <div ng-show="!isCorrect(qard)">Wrong!</div>
+                            </div></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div data-role="footer"><h4>FOOTER</h4></div>
 
         <script type="text/javascript" src="cordova.js"></script>
+        <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
         <script type="text/javascript" src="js/angular/angular.min.js"></script>
-        <script type="text/javascript" src="js/angular/ui-bootstrap-tpls-0.2.0.js"></script>
-        <!-- <script type="text/javascript" src="js/angular-ui/angular-ui.js"></script> -->
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/qards.js"></script>
         <script type="text/javascript">
             app.initialize();
+
+            function addSelectedHandler() {
+                $('li').click(function(e) {
+                    e.preventDefault();
+                    console.log($el);
+                    $(this).addClass('ui-btn-active');
+                    return false;
+                });
+            }
         </script>
+    </script>
     </body>
 </html>

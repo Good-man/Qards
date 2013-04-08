@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('qardsApp', ['ui.bootstrap', 'qardsApp.controllers']);
+angular.module('qardsApp', ['qardsApp.controllers']);
 
 // Controllers
 angular.module('qardsApp.controllers', [])
@@ -10,6 +10,14 @@ angular.module('qardsApp.controllers', [])
     $scope.$on('quizzesLoaded', function(e, quizzes) {
       $scope.quizzes = quizzes;
     });
+
+    $scope.selectAnswer = function(qard, answer) {
+      qard.selectedAnswer = answer.id;
+      for (var i in qard.answers) {
+        qard.answers[i].selectedClass = '';
+      }
+      answer.selectedClass = 'ui-bar-e';
+    };
 
     $scope.isCorrect = function(qard) {
       return qard.selectedAnswer == qard.correctAnswer;
